@@ -1,0 +1,44 @@
+.album-container {
+  display: flex;
+  align-items: center;
+  background-color: #f5f7fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  width: 600px;
+  transition: box-shadow 0.3s ease;
+}
+
+.album-container:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.album-icon {
+  font-size: 40px;
+  margin-right: 20px;
+}
+
+.album-details {
+  flex: 1;
+}
+
+.album-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.album-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+.album-id,
+.user-id {
+  font-weight: bold;
+  color: #3498db;
+}
