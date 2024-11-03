@@ -1,21 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-import { baseURL, urls } from '../../env';
-import './Albums.css'
+import { getAlbumsThunk } from '../../store/albumsReducer';
 import Album from '../../Components/Album/Album';
+import './Albums.css'
 
 function Albums() {
-    const [albums, setAlbums] = useState([])
-    useEffect(() => {
-        fetch(`${baseURL}${urls.albums}`)
-            .then(res => res.json())
-            .then(res => setAlbums(res))
-    }, []);
+    const { albums } = useSelector((state) => state.photosState)
 
+    useEffect(() => {
+        getAlbumsThunk();
+    }, []);
 
     return (
         <div className='albums-container'>
-            {albums.map((album) => {
+            {albums?.map((album) => {
                 return <Album key={album.id} album={album} />
             })}
         </div>

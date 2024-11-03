@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-
 import { useSelector } from 'react-redux';
-import { getCommentsAC } from '../../store/commentsReducer';
+
+import { getCommentsThunk } from '../../store/commentsReducer';
 import Comment from '../../Components/Comment/Comment';
 import './Comments.css';
 
@@ -9,7 +9,7 @@ function Comments() {
     const { comments } = useSelector((state) => state.commentsState)
 
     useEffect(() => {
-        getCommentsAC();
+        getCommentsThunk();
     }, []);
 
     return (

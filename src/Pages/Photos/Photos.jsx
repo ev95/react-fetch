@@ -1,18 +1,20 @@
-import { useEffect, useState } from 'react';
-import { baseURL, urls } from '../../env';
-import './Photos.css';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 import Photo from '../../Components/Photo/Photo';
+import { getPotosThunk } from '../../store/photosReducer';
+import './Photos.css';
 
 function Photos() {
-    const [photos, setPhotos] = useState([])
+    const { photos } = useSelector((state) => state.photosState)
+
     useEffect(() => {
-        fetch(`${baseURL}${urls.photos}`)
-            .then(res => res.json())
-            .then(res => setPhotos(res))
+        getPotosThunk();
     }, []);
+
     return (
         <div className='photos-container'>
-            {photos.map((photo) => {
+            {photos?.map((photo) => {
                 return <Photo key={photo.id} photo={photo} />
             })}
         </div>

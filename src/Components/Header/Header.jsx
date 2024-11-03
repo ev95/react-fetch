@@ -9,8 +9,8 @@ function Header() {
                 <NavLink className={'tab-link'} to='/comments'> Comments</NavLink>
                 <NavLink className={'tab-link'} to='/albums'> Albums</NavLink>
                 <NavLink className={'tab-link'} to='/photos'> Photos</NavLink>
-                <NavLink className={'tab-link'} to='/todos'> Todos</NavLink>
-                <NavLink className={'tab-link'} to='/users'> Users</NavLink>
+                {/* <NavLink className={'tab-link'} to='/todos'> Todos</NavLink>
+                <NavLink className={'tab-link'} to='/users'> Users</NavLink> */}
             </div>
         </div >
     )

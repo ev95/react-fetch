@@ -28,8 +28,6 @@ export const getPostsAC = (data) => ({ type: GET_POSTS, payload: data });
 
 // MIDELWIRE CREATORS
 export const getPostsThunk = () => {
-  console.log("bb");
-
   return (dispatch) => {
     axios_instance
       .get(urls.posts)
