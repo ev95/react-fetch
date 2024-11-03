@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
+import { useSelector } from 'react-redux';
+import { getCommentsAC } from '../../store/commentsReducer';
 import Comment from '../../Components/Comment/Comment';
-import { baseURL, urls } from '../../env';
 import './Comments.css';
 
 function Comments() {
-    const [comments, setComments] = useState([])
+    const { comments } = useSelector((state) => state.commentsState)
+
     useEffect(() => {
-        fetch(`${baseURL}${urls.comments}`)
-            .then(res => res.json())
-            .then(res => setComments(res))
+        getCommentsAC();
     }, []);
 
     return (
         <div className='comments-container'>
-            {comments.map((comment) => {
+            {comments?.map((comment) => {
                 return <Comment key={comment.id} comment={comment} />
             })}
         </div>

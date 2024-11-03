@@ -1,4 +1,6 @@
-export const baseURL = "https://jsonplaceholder.typicode.com/";
+import axios from "axios";
+
+export const baseURL = "https://jsonplaceholder.typicode.com";
 export const urls = {
   posts: "/posts",
   comments: "/comments",
@@ -7,3 +9,7 @@ export const urls = {
   todos: "/todos",
   users: "/users",
 };
+
+export const axios_instance = axios.create({
+  baseURL: "https://jsonplaceholder.typicode.com/",
+});

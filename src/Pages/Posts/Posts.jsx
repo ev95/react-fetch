@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react'
 
+import { getPostsThunk } from '../../store/postsReducer';
 import Post from '../../Components/Post/Post';
-import { baseURL, urls } from '../../env'
 import './Posts.css'
 
 function Posts() {
-    const [posts, setPosts] = useState([])
+    const { posts } = useSelector((state) => state.postsState)
+
     useEffect(() => {
-        fetch(`${baseURL}${urls.posts}`)
-            .then(res => res.json())
-            .then(res => setPosts(res))
+        getPostsThunk();
     }, []);
 
 
     return (
         <div className='posts-container'>
-            {posts.map((post) => {
+            {posts?.map((post) => {
                 return <Post key={post.id} post={post} />
             })}
         </div>
