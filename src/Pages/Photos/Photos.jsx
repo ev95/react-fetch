@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Photo from '../../Components/Photo/Photo';
 import { getPotosThunk } from '../../store/photosReducer';
@@ -7,9 +7,10 @@ import './Photos.css';
 
 function Photos() {
     const { photos } = useSelector((state) => state.photosState)
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        getPotosThunk();
+        dispatch(getPotosThunk());
     }, []);
 
     return (

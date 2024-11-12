@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react'
 
 import { getPostsThunk } from '../../store/postsReducer';
@@ -7,9 +7,10 @@ import './Posts.css'
 
 function Posts() {
     const { posts } = useSelector((state) => state.postsState)
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        getPostsThunk();
+        dispatch(getPostsThunk());
     }, []);
 
 
